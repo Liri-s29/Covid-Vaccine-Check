@@ -9,13 +9,13 @@ app.use(
 );
 
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("/"));
 
-app.get("", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.post("", (req, res) => {
+app.post("/", (req, res) => {
         const pin = req.body.pincode;
         const date = reFormat(req.body.date);
         const url ="https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode="+pin +"&date="+date;
