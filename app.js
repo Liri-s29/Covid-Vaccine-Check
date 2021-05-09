@@ -22,9 +22,9 @@ app.post("/", (req, res) => {
         
         https.get(url, (response) => {
           console.log(response.statusCode);
-            // if (response.statusCode != 200){
-            //   res.sendFile(__dirname+"/error.html");
-            // }else{
+            if (response.statusCode != 200){
+              res.sendFile(__dirname+"/error.html");
+            }else{
               response.on("data", (data) => {
                 const coviData = JSON.parse(data);
                 const num = coviData.sessions.length;
@@ -56,7 +56,7 @@ app.post("/", (req, res) => {
                 
                 
                 });
-            // }
+            }
           
         });
 });
